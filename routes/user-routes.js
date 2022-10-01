@@ -1,10 +1,12 @@
 const {User} = require('../models');
+const catchAsync = require('../utils/catchAsync');
+const {isLoggedIn, isAuthor} = require('../utils/middleware')
 const userController = require('../controllers/users');
 const router = require('express').Router();
 
 router.route("/register")
     .get(userController.renderRegisterForm)
-    .post(userController.register)
+    .post(catchAsync(userController.register))
 
 
 router.route('/login')

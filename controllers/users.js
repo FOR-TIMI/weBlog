@@ -13,8 +13,8 @@ module.exports.renderLoginForm = (req, res) => {
 module.exports.register = async (req, res, next) => {
 
     const {username, password, email} = req.body
-    console.log({username, password, email})
-    // const user = await User.create({username, password, email})
+    await User.create({username, password, email})
+    console.log("created new user",{username, password, email})
     
 }
 
