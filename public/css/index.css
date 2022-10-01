@@ -1,0 +1,84 @@
+nav,footer,.welcome-design{
+    background: rgb(34,193,195);
+   background: linear-gradient(194deg, rgba(34,193,195,1) 0%, rgba(45,253,184,1) 100%);
+}
+
+body{
+    background-color: #F5F5F5;
+}
+
+
+.profile-menu-wrap{
+ position: absolute;
+ top: 100%;
+ right: 10%;
+ width: 320px;
+}
+
+.profile-menu{
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.user-info p{
+    font-weight: 500;
+    color: black;
+}
+
+/* .user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+} */
+
+.stuff{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-design{
+    width: 40%;
+    height: 500px;
+    border-radius : 10% 36% 51% 10% / 8% 65% 52% 10% ;
+    position: relative;
+    left: 2.5em;
+    z-index: 99;
+}
+.welcome-text-wrapper{
+    width: 80%;
+    justify-content: center;
+    text-align: center;
+}
+
+#login-form{
+    height: 400px;
+    width: 60%;
+    background-color: #fff;
+    position: relative;
+    right: 2.3em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-top-right-radius : 10px;
+    border-bottom-right-radius: 10px ;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+@media only screen and (max-width: 769px) {
+    .container{
+        width: 100%;
+        border: 1px solid red;
+    }
+    .welcome-design{
+        display: none;
+    }
+  }

@@ -1,0 +1,39 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-success bg-success">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">weBlog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse text-white" id="navbarNavAltMarkup">
+            {{!-- <div class="navbar-nav">
+                 <a class="nav-link" href="/posts">posts</a>
+                <a class="nav-link text-light" href="/posts/new">New Post</a>
+            </div> --}}
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-light" href="/">Home</a>
+
+                {{#if signedInUser}}
+                <a class="nav-link text-light" href="/logout">Logout</a>
+
+                {{else}}
+               <a class="nav-link text-light" href="/login">Login</a>
+                <a class="nav-link text-light" href="/register">Sign Up</a>
+                {{/if}}
+ 
+            </div>
+                {{!-- User profile  --}}
+                {{!-- <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=35" alt="no photo available" class="rounded-circle"/> --}}
+                {{!-- <a class="nav-link text-light " href="/profile" >
+                </a> --}}
+
+                {{!-- <section class="profile-menu-wrap">
+                    <section class="profile-menu">
+                        <section class="user-info d-flex text-align-center justify-content-center">
+                            <img src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=35" alt="no photo available" class="rounded-circle"/>
+                            <p class="text-sm">Femi Olakunrin</p>
+                        </section>
+                    </section>
+                </section> --}}
+        </div>
+    </div>
+</nav>
