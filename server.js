@@ -1,13 +1,9 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const Post = require('./models/Post')
-const flash = require("connect-flash");
 const routes = require('./routes');
 const sequelize = require('./config/connection');
-const session = require("express-session");
 
-const ExpressError = require('./utils/ExpressError')
 
 
 const app = express();
@@ -25,6 +21,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname,'views'));
 
 app.use(routes);
+
+
+
+
+
+
+
 
 
 

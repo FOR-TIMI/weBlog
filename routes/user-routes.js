@@ -11,7 +11,7 @@ router.route("/register")
 
 router.route('/login')
     .get(userController.renderLoginForm)
-    .post()
+    .post(catchAsync(userController.login))
 
 router.get('/logout', userController.logout)
 

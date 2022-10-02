@@ -12,9 +12,21 @@ module.exports.renderLoginForm = (req, res) => {
 
 module.exports.register = async (req, res, next) => {
 
+  try{
     const {username, password, email} = req.body
     await User.create({username, password, email})
-    console.log("created new user",{username, password, email})
+    const user = await User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    const validPassword = user.checkPassword(req.body.password);
+
+  }
+  catch(err){
+    req.flash('error', err.message);
+    res.redirect('register')
+  }
     
 }
 
@@ -22,16 +34,37 @@ module.exports.renderLoginForm = (req, res) => {
     res.render('users/login');
 }
 
-module.exports.login = (req, res) => {
-//     req.flash('success', 'welcome back!');
-//     const redirectUrl = req.session.returnTo || '/campgrounds';
-//     delete req.session.returnTo;
-//     res.redirect(redirectUrl);
+module.exports.login = async (req, res) => {
+   
+   const user = await User.findOne({
+        attribute:{
+          exclude: 'email'
+        },
+        where: {
+          username: req.body.username
+        }
+      })
+
+
+    if(user){
+          const validPassword = user.checkPassword(req.body.password);
+        if(validPassword){
+          req.flash('success', 'welcome back!');
+          res.redirect('/login')
+        //   const redirectUrl = req.session.returnTo  || '/posts';
+        //   res.redirect(redirectUrl);
+        //   delete req.session.returnTo;
+        //   return
+        }
+        req.flash('error', 'Invalid username or password')
+        res.redirect('/login')
+    }
+    req.flash('error', 'Invalid username or password')
+    res.redirect('/login');
 }
 
 module.exports.logout = (req, res,next) => {
-    // req.logout();
-    // req.flash('success', "Goodbye!");
-    // res.redirect('/campgrounds');
-
+    req.logout();
+    req.flash('success', "Goodbye!");
+    res.redirect('/posts');
 }
