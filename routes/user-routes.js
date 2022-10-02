@@ -4,6 +4,7 @@ const {isLoggedIn, isAuthor} = require('../utils/middleware')
 const userController = require('../controllers/users');
 const router = require('express').Router();
 
+
 router.route("/register")
     .get(userController.renderRegisterForm)
     .post(catchAsync(userController.register))

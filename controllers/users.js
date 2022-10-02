@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const {User} = require('../models');
 
 module.exports.renderRegisterForm = (req, res) => {
     res.render('users/register');
@@ -50,7 +50,7 @@ module.exports.login = async (req, res) => {
           const validPassword = user.checkPassword(req.body.password);
         if(validPassword){
           req.flash('success', 'welcome back!');
-          res.redirect('/login')
+          res.redirect('/posts')
         //   const redirectUrl = req.session.returnTo  || '/posts';
         //   res.redirect(redirectUrl);
         //   delete req.session.returnTo;

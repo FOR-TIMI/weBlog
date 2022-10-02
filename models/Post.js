@@ -14,6 +14,9 @@ Post.init(
             primaryKey: true,
             autoIncrement: true
           },
+          images: {
+            type: DataTypes.JSON,
+          },
           title: {
             type: DataTypes.STRING,
             allowNull: false
@@ -28,7 +31,14 @@ Post.init(
               model: 'user',
               key: 'id'
             }
-          }
+          },
+          post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'post',
+              key: 'id'
+            }
+          },
     },
     
     //Configuration

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
+const postRoutes = require('./post-routes')
+
 require('dotenv').config
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -27,13 +29,11 @@ router.use((req, res, next) => {
 });
 
 
+router.use('/posts', postRoutes);
 router.use('/', userRoutes);
 
 
-
  
-  
-
   router.use((err, req, res, next) => {
       const { statusCode = 500 } = err;
       if (!err.message) err.message = "Oh no, Something went wrong!";
