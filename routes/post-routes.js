@@ -1,19 +1,35 @@
 const router = require('express').Router();
-const { isLoggedIn} = require('../utils/middleware')
+const { isLoggedIn, isAuthor} = require('../utils/middleware')
 
-const multer = require('multer');
+
 const catchAsync = require('../utils/catchAsync');
 const postController = require('../controllers/post');
-const {storage} = require('../config/cloudinary');
-const upload = multer({storage});
 
 router.route('/')
-    .get(isLoggedIn, postController.index)
-    .get(postController.findOnePost)
-    // .post(upload.array('image'), (req,res) => {
-    // })
+    .get(catchAsync(postController.index))
+
+router.route('/posts')
+    .get(catchAsync(postController.index))
+    .post(isLoggedIn,catchAsync(postController.create))
+
+router.route('/posts/new')
+    // .get(isLoggedIn,postController.renderNewPostForm)
 
 
+router.route('/posts/:id')
+    .get(catchAsync(postController.findOnePost))
+    .put(isLoggedIn,isAuthor, catchAsync(postController.edit))
+    .delete(isLoggedIn,isAuthor,catchAsync(postController.delete))
+
+
+router.route('/posts/:id/edit')
+    .get(isLoggedIn,isAuthor,catchAsync(postController.renderEditForm))
+
+router.get('/:id/comments', (req,res) => {
+        const {id} = req.params;
+        res.redirect(`/posts/${id}`);
+    })
+    
 
 
 module.exports = router

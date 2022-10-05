@@ -43,11 +43,12 @@ module.exports.register = async (req, res, next) => {
         req.session.loggedIn = true;
         req.session.user_id = user.id;
         req.session.username = user.username;
-        //Login successful
-        req.flash('success', `Hi there, ${user.username}!`);
-        res.redirect('/posts')
-        return
       });
+
+      //Login successful
+      req.flash('success', `Hi there, ${user.username}!`);
+      res.redirect('/')
+      return
 
   }
   catch(err){
@@ -84,23 +85,26 @@ module.exports.login = async (req, res) => {
       }
     
         //store session
-        req.session.save( () => {
+        req.session.save(() => {
           // declare session variables
           req.session.loggedIn = true;
           req.session.user_id = user.id;
           req.session.username = user.username;
-          //Login successful
+
+           //Login successful
           req.flash('success', `welcome back ${user.username}!`);
-          const redirectUrl = req.session.returnTo || '/posts';
+          const redirectUrl = req.session.returnTo || '/';
           delete req.session.returnTo;
           res.redirect(redirectUrl);
           return
         });
+        
+       
 
 }
 
 module.exports.logout = (req, res,next) => {
-  req.session.destroy(() => {
-    res.redirect('/login')
+  req.session.destroy(function(){
+     res.redirect('/login')
   });
 }

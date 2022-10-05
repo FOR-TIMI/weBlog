@@ -1,6 +1,6 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-
+const moment = require('moment');
 
 
 // create our Post model
@@ -13,9 +13,6 @@ Post.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
-          },
-          images: {
-            type: DataTypes.JSON,
           },
           title: {
             type: DataTypes.STRING,
@@ -37,8 +34,21 @@ Post.init(
             references: {
               model: 'post',
               key: 'id'
+              
             }
           },
+          createdAt: {
+            type: DataTypes.DATE,                  
+          get() {
+                return moment(this.getDataValue('createdAt')).format('DD/MM/YYYY');
+            }
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            get() {
+                return moment(this.getDataValue('updatedAt')).format('DD/MM/YYYY');
+            }
+          }
     },
     
     //Configuration

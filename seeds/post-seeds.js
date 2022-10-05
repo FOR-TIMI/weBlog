@@ -7,21 +7,8 @@ const postData = [
                  devising their code between the Model layer for data, the view layer for design,
                  and the controller layer for application logic
                  `,
-        images: [
-            {
-              url: 'https://res.cloudinary.com/yelpcampprojectimages/image/upload/v1654481485/yelpCamp/v3in5dcknsbncoovc5et.jpg',
-              filename: 'yelpCamp/v3in5dcknsbncoovc5et',
-            },
-            {
-              url: 'https://res.cloudinary.com/yelpcampprojectimages/image/upload/v1654481486/yelpCamp/b4cvfrhxeleiot6glbum.jpg',
-              filename: 'yelpCamp/b4cvfrhxeleiot6glbum',
-            },
-            {
-              url: 'https://res.cloudinary.com/yelpcampprojectimages/image/upload/v1654481487/yelpCamp/tvyrpe4apn7yyxijrsmq.jpg',
-              filename: 'yelpCamp/tvyrpe4apn7yyxijrsmq',
-            }
-          ],
-        user_id: 1
+        user_id: 1,
+
     },
     {
         title : 'Authentication VS. Authorization',
@@ -30,25 +17,24 @@ const postData = [
                   whereas authorization means being allowed access to the system
                  `,
         user_id: 2,
-        images: [
-            {
-              url: 'https://res.cloudinary.com/yelpcampprojectimages/image/upload/v1654481485/yelpCamp/v3in5dcknsbncoovc5et.jpg',
-              filename: 'yelpCamp/v3in5dcknsbncoovc5et',
-            }
-        ],
     },
     {
         title : 'Object-Relational Mapping',
         content: `I have really loved learning about ORMs. it's erally simplified the way I create queries in SQL`,
         user_id: 4,
-        images: [
-            {
-              url: 'https://res.cloudinary.com/yelpcampprojectimages/image/upload/v1654481485/yelpCamp/v3in5dcknsbncoovc5et.jpg',
-              filename: 'yelpCamp/v3in5dcknsbncoovc5et',
-            }
-        ],
-    }
+    },
+    {
+        title : 'New Js feature',
+        content: `The new JS update allows us to use the await keyword without first calling an async function Thoughts?`,
+        user_id: 7,
+    },
+    {
+        title : 'Dog walking',
+        content: `Why is everyone always so serious on this site?`,
+        user_id: 3,
+    },
 ]
+
 const seedPosts = () =>  Post.bulkCreate(postData)
 
 module.exports = seedPosts;

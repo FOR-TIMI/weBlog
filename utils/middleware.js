@@ -22,12 +22,13 @@ module.exports.validatePost = (req, res, next) => {
 	}
 };
 
-module.exports.isCreator = async(req,res,next) => {
+module.exports.isAuthor = async(req,res,next) => {
 	const {id} = req.params
-	const campground = await Campground.findById(id);
-	if(!campground.creator.equals(req.user.id)){
-		req.flash('error', `Only the creator can make changes to this campground`)
-		return res.redirect(`/campgrounds/${campground._id}`);
+	const post = await Post.findByPk(id);
+	if(post.user_id !== req.session.user_id){
+		delete req.session.isPostAuthor;
+		req.flash('error', `Only the author can make changes to this post`)
+		return res.redirect(`/posts/${post.id}`);
 	}
 	next();
 }

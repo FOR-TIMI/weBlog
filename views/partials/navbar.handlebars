@@ -5,19 +5,19 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         <div class="collapse navbar-collapse text-white" id="navbarNavAltMarkup">
-            {{!-- <div class="navbar-nav">
-                 <a class="nav-link" href="/posts">posts</a>
-                <a class="nav-link text-light" href="/posts/new">New Post</a>
-            </div> --}}
-            <div class="navbar-nav ms-auto">
 
+            <div class="navbar-nav ms-auto">
+                                
                 {{#if loggedIn}}
                 <a class="nav-link text-light" href="/">Home</a>
+                 <a class="nav-link text-light" href="/new">New Post</a>
                 <a class="nav-link text-light" href="/user">Dashboard</a>
                 <a class="nav-link text-light" href="/logout">Logout</a>
                 {{else}}
+               <a class="nav-link text-light" href="/posts">Home</a>
+               <a class="nav-link text-light" href="/posts/new">New Post</a>
                <a class="nav-link text-light" href="/login">Login</a>
-                <a class="nav-link text-light" href="/register">Sign Up</a>
+               <a class="nav-link text-light" href="/register">Sign Up</a>
                 {{/if}}
  
             </div>
