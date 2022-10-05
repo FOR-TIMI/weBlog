@@ -22,13 +22,15 @@ router.use((req, res, next) => {
   if(!['/login','/','/register'].includes(req.originalUrl)){
     req.session.returnTo = req.originalUrl;
   }
- res.locals.signedInUser = req.user;
+ 
  res.locals.success = req.flash("success");
  res.locals.error = req.flash("error");
  next();
 });
 
-
+router.get('/', (req,res) => {
+  res.send(req.session);
+})
 router.use('/posts', postRoutes);
 router.use('/', userRoutes);
 

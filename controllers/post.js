@@ -12,7 +12,7 @@ module.exports.index = async function(req,res){
          post.get({ plain: true })
        );
 
-       return res.render('posts/index', { posts })
+       return res.render('posts/index', { posts, loggedIn: req.session.loggedIn })
          
    }
    catch(err){
@@ -21,4 +21,26 @@ module.exports.index = async function(req,res){
 }
 
 
-// module.exports.index
+module.exports.findOnePost = async function(req,res){
+   try{
+      const post = await Post.findOne({
+         where : {
+            id : req.params.id
+         }
+      })
+
+      if(!post){
+         req.flash("error", "OOps we couldn't find that post!")
+         res.redirect(`/posts`);
+         return
+      }
+       
+      req.flash("success", "OOps something went wrong!")
+      res.render('posts/details', { post })
+
+   }
+   catch(err){
+      req.flash("error", "OOps something went wrong!")
+      res.redirect(`/posts/${req.params.id}`)
+   }
+}

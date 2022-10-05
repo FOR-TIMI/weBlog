@@ -7,6 +7,7 @@ class User extends Model{
   // set up method to run on instance data (per user) to check password
   async checkPassword(loginPw) {
     const result = await bcrypt.compare(loginPw, this.password)
+    console.log(result);
     return result
   }
 

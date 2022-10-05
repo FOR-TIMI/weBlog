@@ -14,13 +14,40 @@ module.exports.register = async (req, res, next) => {
 
   try{
     const {username, password, email} = req.body
+    // new User
     await User.create({username, password, email})
-    const user = await User.findOne({
-        where: {
-            username: req.body.username
-        }
+    
+     //User check
+     const user = await User.findOne({
+      attribute:{
+        exclude: 'email'
+      },
+      where: {
+        username: req.body.username
+      }
     })
-    const validPassword = user.checkPassword(req.body.password);
+    
+    //Password Check
+    const validPassword = user && await user.checkPassword(req.body.password) 
+    
+    //Can't find that user
+    if(!user || !validPassword){
+      req.flash('error', 'Invalid username or password')
+      res.redirect('/login');
+      return;
+    }
+  
+      //store session
+      req.session.save( () => {
+        // declare session variables
+        req.session.loggedIn = true;
+        req.session.user_id = user.id;
+        req.session.username = user.username;
+        //Login successful
+        req.flash('success', `Hi there, ${user.username}!`);
+        res.redirect('/posts')
+        return
+      });
 
   }
   catch(err){
@@ -36,7 +63,8 @@ module.exports.renderLoginForm = (req, res) => {
 
 module.exports.login = async (req, res) => {
    
-   const user = await User.findOne({
+       //User check
+      const user = await User.findOne({
         attribute:{
           exclude: 'email'
         },
@@ -44,27 +72,35 @@ module.exports.login = async (req, res) => {
           username: req.body.username
         }
       })
-
-
-    if(user){
-          const validPassword = user.checkPassword(req.body.password);
-        if(validPassword){
-          req.flash('success', 'welcome back!');
-          res.redirect('/posts')
-        //   const redirectUrl = req.session.returnTo  || '/posts';
-        //   res.redirect(redirectUrl);
-        //   delete req.session.returnTo;
-        //   return
-        }
+      
+      //Password Check
+      const validPassword = user && await user.checkPassword(req.body.password) 
+      
+      //Can't find that user
+      if(!user || !validPassword){
         req.flash('error', 'Invalid username or password')
-        res.redirect('/login')
-    }
-    req.flash('error', 'Invalid username or password')
-    res.redirect('/login');
+        res.redirect('/login');
+        return;
+      }
+    
+        //store session
+        req.session.save( () => {
+          // declare session variables
+          req.session.loggedIn = true;
+          req.session.user_id = user.id;
+          req.session.username = user.username;
+          //Login successful
+          req.flash('success', `welcome back ${user.username}!`);
+          const redirectUrl = req.session.returnTo || '/posts';
+          delete req.session.returnTo;
+          res.redirect(redirectUrl);
+          return
+        });
+
 }
 
 module.exports.logout = (req, res,next) => {
-    req.logout();
-    req.flash('success', "Goodbye!");
-    res.redirect('/posts');
+  req.session.destroy(() => {
+    res.redirect('/login')
+  });
 }

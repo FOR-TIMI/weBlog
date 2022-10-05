@@ -4,10 +4,11 @@ const { Post, User } = require('../models');
 
 
 module.exports.isLoggedIn = (req,res,next) => {
-    if(!req.isAuthenticated()){
+    if(!req.session.loggedIn){
 		req.flash('error', 'you must be signed in')
-		return res.redirect('/login');
-	  }
+		res.redirect('/login');
+		return
+	}
       next();
 }
 
