@@ -24,10 +24,6 @@ try{
         ]
     })
 
-    if(!posts.length){
-         req.flash("error","You have no posts yet")
-         return;
-    }
 
     const plainPost = posts.map(post => post.get({plain: true}))
        res.render('dashboard/index',{
