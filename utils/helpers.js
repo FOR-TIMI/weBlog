@@ -25,8 +25,7 @@ const register = function(Handlebars) {
                 html += `<div class="d-flex justify-content-between"> 
                         <p class="card-text">${c.comment_text}</p>
                         <div>
-                        <a href="/posts" class="btn btn-info btn-sm">edit</a>
-                        <a href="/posts" class="btn btn-danger btn-sm">delete</a>
+                        <a type="submit" href="comments/${c.id}" class="btn btn-danger delete-comment-button btn-sm">delete</a>
                         </div>
                         </div>
                         `  

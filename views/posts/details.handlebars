@@ -43,18 +43,19 @@
 					<button type="submit" class="btn btn-success ">Submit</button>
 				</section>	
 			</form>
-		    <script src='/js/addComment.js'></script>
+		    <script defer src='/js/addComment.js'></script>
         </section>
 		{{/if}}
 
 
 <div class="container col-md-12">
-<div class="row d-flex justify-content-between">
+<div class="row d-flex justify-content-between" id="comments-container">
 	{{#if plainPost.comments.length}}
 	<h3 class="mt-3 text-center">Comments</h3>
 	{{/if}}
 
    {{{renderComments plainPost.comments user_id plainPost.createdAt}}}
+
 
 
 </div>
