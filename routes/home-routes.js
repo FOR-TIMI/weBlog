@@ -7,8 +7,7 @@ router.route('/')
     .get(catchAsync(homeController.index))
     .post(isLoggedIn,catchAsync(homeController.create))
 
-
-    
+   
 router.route('/login')
     .get(homeController.login)
     

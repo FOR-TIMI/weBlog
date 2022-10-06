@@ -201,14 +201,13 @@ module.exports.login = async(req,res) => {
 module.exports.logout = async(req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
-            res.status(204)
-            json({message: "Logged out successfully"})
+            res
+            .status(204)
             .end();
         })
     } else {
         res
         .status(404)
-        .json({message:"You are already logged out"})
         .end();
     }
 };
