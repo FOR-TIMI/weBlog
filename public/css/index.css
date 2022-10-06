@@ -52,7 +52,7 @@ body{
     text-align: center;
 }
 
-#login-form{
+#login-form,#register-form{
     height: 400px;
     width: 60%;
     background-color: #fff;

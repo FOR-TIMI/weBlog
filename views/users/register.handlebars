@@ -1,6 +1,4 @@
-
-{{{main}}}
-<section class="container mt-5 col-sm-12">
+<section class="container mt-5 col-sm-12" id="register-container">
     <section class="row ">
         <section class=" col-xl-7 col-sm-12 stuff ">
             <section class="shadow welcome-design d-flex justify-content-center align-items-center">
@@ -10,12 +8,12 @@
               </section>
             </section>
           
-            <form action="/register" method="POST" id="login-form" class="d-flex justify-content-center align-items-center flex-column validated-form" novalidate>
+            <form action="/register" method="POST" id="register-form" class="d-flex justify-content-center align-items-center flex-column validated-form" novalidate>
                     <div class="mb-2 w-50">
                             <label class="form-label" for="username">Username</label>
                             <input
                                 class="form-control"
-                                id="username"
+                                id="registerUsername"
                                 type="text"
                                 name="username"
                                 required
@@ -28,7 +26,7 @@
                             <label class="form-label" for="email">Email</label>
                             <input
                                 class="form-control"
-                                id="email"
+                                id="registerEmail"
                                 type="email"
                                 name="email"
                                 required
@@ -40,7 +38,7 @@
                             <label class="form-label" for="password">Password</label>
                             <input
                                 class="form-control"
-                                id="password"
+                                id="registerPassword"
                                 type="password"
                                 name="password"
                                 required
@@ -55,3 +53,5 @@
     </section>
 
 </section>
+
+<script defer src='/js/register.js'></script>
