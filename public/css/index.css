@@ -76,7 +76,8 @@ body{
 
 
 @media only screen and (max-width: 769px) {
-    .welcome-design{
-        display: none;
+    #welcome-text{
+        display: none !important;
+        background-color: blue;
     }
   }
