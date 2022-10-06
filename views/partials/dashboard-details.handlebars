@@ -1,0 +1,61 @@
+<div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="editPostLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editPostLabel">Edit Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="edit-post-title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="edit-post-title">
+          </div>
+          <div class="mb-3">
+            <label for="edit-post-content" class="col-form-label">Content:</label>
+            <textarea class="form-control" id="edit-post-content"></textarea>
+            <a href={{user_id}} id="user-id"></a>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="saveEdit" type="submit" class="btn btn-success text-light">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<article class="card mb-3 col-md-8 shadow">
+	<div class="row">
+		<div class="col">
+			<div class="card-body">
+				<section class="d-flex justify-content-between">
+				  <h5 class="card-title">{{title}}</h5>
+				  <p class="card-text"><small class="text-muted">posted on {{createdAt}}</small></p>
+
+				</section>
+				<p class="card-text">{{content}}</p>
+					<p class="card-text">
+					<small class="text-muted"> -{{user.username}}</small>
+				    </p>
+
+				<div class="d-flex justify-content-between">
+
+				<div>
+                    <a href="/posts/{{id}}"  data-bs-toggle="modal" id="editPostButton" data-bs-target="#editPost" data-bs-whatever="@fat"  class="btn text-light btn-sm btn-info">
+					edit
+				    </a>
+                    <a href="/posts/{{id}}"  class="btn text-light btn-danger btn-sm">
+					delete
+				    </a>
+                </div>
+					<p class="card-text">
+						<small class="text-muted">this post has {{comments.length}} comments</small>
+					</p>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+

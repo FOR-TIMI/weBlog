@@ -1,8 +1,8 @@
 
 {{> flash}}
 <section class="container mt-3 d-flex justify-content-center align-items-center flex-column">
-<button type="button" class="btn btn-warning my-3 text-light" data-bs-toggle="modal" data-bs-target="#newPostModal" data-bs-whatever="@fat">new post +</button>
 
+<button type="button" class="btn btn-warning my-3 text-light" data-bs-toggle="modal" data-bs-target="#newPostModal" data-bs-whatever="@fat">new post +</button>
 
 <div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -32,8 +32,9 @@
 </div>
 
 	{{#each plainPost}}
-    	{{> post-details}}
+    	{{> dashboard-details}}
 	{{/each}}
 </section>
 
 <script src="/js/makePost.js"></script>
+<script src="/js/editPost.js" defer></script>
