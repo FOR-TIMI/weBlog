@@ -1,0 +1,63 @@
+
+<section class="container mt-5">
+
+	<section class="row">
+		{{#if loggedIn}}
+		<section class="col-md-7">
+		{{else}}
+		<section class="col-md-8">
+		{{/if}}
+			<section class="card">
+				<section class="card-body">
+					<h5 class="card-title">{{plainPost.title}}</h5>
+					<p class="card-text">{{plainPost.content}}</p>			
+				</section>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item d-flex justify-content-end">post by -{{plainPost.user.username}}</li>
+				</ul>
+			
+			 {{!-- To check if the user is currently logged is the owner of the post --}}
+			{{{compare user_id plainPost.user_id plainPost.id}}}
+
+
+			<section class="card-footer text-muted">
+				posted on {{plainPost.createdAt}}
+			</section>
+
+			</section>
+
+		</section>
+
+		{{!-- comment section  --}}
+		{{#if loggedIn}}
+     	<section class="col-md-5 mt-5">
+			
+			<form action="/users/{{user_id}}/post/{{plainPost.id}}" method="post" class="mb-5 validated-form " novalidate>
+				<h3 class="mb-4">Leave a comment</h3>
+				<section class="mb-4">
+						<textarea class="form-control" name="comment[body]" id="body" cols="30" rows="4" required></textarea>
+						<section class="valid-feedback">
+							Looks good!
+						</section>
+				</section>
+				<section class="d-flex justify-content-end">
+					<button class="btn btn-success ">Submit</button>
+				</section>	
+			</form>
+        </section>
+		{{/if}}
+
+
+<div class="container col-md-12">
+<div class="row d-flex justify-content-between">
+	{{#if plainPost.comments.length}}
+	<h3 class="mt-3 text-center">Comments</h3>
+	{{/if}}
+
+   {{{renderComments plainPost.comments user_id plainPost.createdAt}}}
+
+
+</div>
+</div>
+
+</section>

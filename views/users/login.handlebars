@@ -1,0 +1,48 @@
+
+
+<section class="container mt-5 col-sm-12" id="login-container">
+    {{> flash}}
+    <section class="row ">
+        <section class=" col-xl-7 col-sm-12 stuff ">
+            <section class="shadow welcome-design d-flex justify-content-center align-items-center">
+              <section class="welcome-text-wrapper d-flex justify-content-center align-items-center flex-column">
+                   <h3 class="text-white">weBlog</h3>
+                   <p class="text-muted">Discuss with other developers today</p>
+              </section>
+            </section>
+          
+            <form action="/login" method="POST" id="login-form" class="d-flex justify-content-center align-items-center flex-column validated-form" novalidate>
+                    <div class="mb-3 w-50">
+                            <label class="form-label" for="username">Username</label>
+                            <input
+                                class="form-control"
+                                id="username"
+                                type="text"
+                                name="username"
+                                required
+                                autofocus
+                            />
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+    
+                        <div class="mb-3 w-50">
+                            <label class="form-label" for="password">Password</label>
+                            <input
+                                class="form-control"
+                                id="password"
+                                type="password"
+                                name="password"
+                                required
+                            />
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+    
+                        <button type="submit" class="btn btn-warning text-white mb-5">Login</button>
+                        <a class="text-success" href="/register">Don't have an account?</a>
+
+            </form>
+           
+        </section>
+    </section>
+
+</section>
