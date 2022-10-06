@@ -77,7 +77,7 @@ module.exports.createPost =  async (req, res) => {
 try{
    const post = await Post.create({
       title: req.body.title,
-      text: req.body.text,
+      content: req.body.content,
       user_id: req.session.user_id
   })
   res.json(post)

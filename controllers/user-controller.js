@@ -95,12 +95,6 @@ try{
          req.session.user_id = user.id;
          req.session.username = user.username;
     
-          //Login successful
-        //  req.flash('success', `welcome back ${user.username}!`);
-        //  const redirectUrl = req.session.returnTo || '/';
-        //  delete req.session.returnTo;
-        //  res.redirect(redirectUrl);
-        //  return
         return res.json({...req.session, user})
        });
 }
@@ -192,7 +186,6 @@ module.exports.login = async(req,res) => {
     req.session.user_id = user.id;
     req.session.username = user.username;
     req.session.loggedIn = true;
-
     res.json({ user, message: 'You are no logged in!' });
    });
 

@@ -1,11 +1,12 @@
 const { User, Post, Comment} = require('../models');
 
 
-module.exports.findPostsByUser = async (req,res) => {
+module.exports.index = async (req,res) => {
 try{
+   if(req.session.loggedIn){
     const posts = await Post.findAll({
         where: {
-            user_id: req.session.id
+            user_id: req.session.user_id
         },
         include: [
             {
@@ -24,18 +25,26 @@ try{
     })
 
     if(!posts.length){
-         res
-         .status(404)
-         .json({message: "There are no posts by this user"})
+         req.flash("error","You have no posts yet")
          return;
     }
 
-    res.json(posts)
+    const plainPost = posts.map(post => post.get({plain: true}))
+       res.render('dashboard/index',{
+       plainPost,
+       loggedIn: req.session.loggedIn,
+       user_id : req.session.user_id
+    })
+    return;
+   }
+   req.flash("error", "you must sign in first")
+   res.redirect('/login')
+
 }
 catch(err){
-    res
-    .status(500)
-    .json({message: err})
+    req
+    .flash("error", "something went wrong with our server")
+ return 
 }
 }
 

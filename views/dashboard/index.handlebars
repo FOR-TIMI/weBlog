@@ -1,0 +1,39 @@
+
+{{> flash}}
+<section class="container mt-3 d-flex justify-content-center align-items-center flex-column">
+<button type="button" class="btn btn-warning my-3 text-light" data-bs-toggle="modal" data-bs-target="#newPostModal" data-bs-whatever="@fat">new post +</button>
+
+
+<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newPostModalLabel">New Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="post-title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="post-title">
+          </div>
+          <div class="mb-3">
+            <label for="post-content" class="col-form-label">Content:</label>
+            <textarea class="form-control" id="post-content"></textarea>
+            <a href={{user_id}} id="user-id"></a>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="addPost" type="submit" class="btn btn-warning text-light">Add post +</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	{{#each plainPost}}
+    	{{> post-details}}
+	{{/each}}
+</section>
+
+<script src="/js/makePost.js"></script>
