@@ -44,29 +44,3 @@ catch(err){
 }
 }
 
-module.exports.EditPost = async(req,res) => {
-
-    // const post = await Post.update(
-    //     req.body,
-    //     {
-    //     where: {
-    //         id: req.params.id
-    //     }
-    // })
-
-    res.send(req.body)
-    console.log(req.body)
-    
-    // if(!post){
-    //     res
-    //     .status(404)
-    //     .json({message: "Could not find that post"})
-    // }
-    // const plainPost = post.get({plain : true});
-
-
-    // res.render('posts/edit', {
-    //     plainPost,
-    //     loggedIn:req.session.loggedIn
-    // })
-}

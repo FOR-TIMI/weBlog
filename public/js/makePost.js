@@ -6,8 +6,8 @@ async function makePost(){
     const title = document.getElementById('post-title').value.trim();
     const content = document.getElementById('post-content').value.trim();
     //To get userid through the link
-    let user_id = document.getElementById('user-id').href.split('/')[3]
-    user_id = parseInt(user_id)
+    const user_id = parseInt(document.getElementById('user-id').href.split('/')[3])
+
 
     if(title.length, content.length, user_id){
         //POST request -  /api/post

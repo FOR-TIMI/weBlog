@@ -4,8 +4,9 @@ const { isLoggedIn } = require('../utils/middleware');
 const catchAsync = require('../utils/catchAsync');
 
 router.route('/')
-      .get(catchAsync(dashBoardController.index))
-      .put(dashBoardController.EditPost)
+      .get(isLoggedIn,catchAsync(dashBoardController.index))
+
+
 
 
 

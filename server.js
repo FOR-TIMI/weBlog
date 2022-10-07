@@ -34,6 +34,7 @@ app.use(flash());
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.set('port', PORT)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

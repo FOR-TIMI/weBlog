@@ -85,7 +85,7 @@ try{
 catch(err){
    res
    .status(500)
-   .json({message: err})
+   .json({message: "something went wrong"})
 }
      
 };
