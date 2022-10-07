@@ -24,9 +24,10 @@ const register = function(Handlebars) {
                 if(c.user_id === signedInUserId){
                 html += `<div class="d-flex justify-content-between"> 
                         <p class="card-text">${c.comment_text}</p>
-                        <div>
-                        <a type="submit" href="comments/${c.postId}" class="btn btn-danger delete-comment-button btn-sm">delete</a>
-                        </div>
+
+                        <form class="d-inline" action="/comments/${c.id}?_method=DELETE" method="POST">
+                          <button type="submit" class="btn btn-danger btn-sm">delete</button>
+                        </form>
                         </div>
                         `  
                       

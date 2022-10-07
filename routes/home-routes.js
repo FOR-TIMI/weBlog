@@ -17,4 +17,7 @@ router.route('/register')
 router.route('/posts/:id')
         .get(catchAsync(homeController.findOnePost))
 
+router.route('/comments/:id')
+        .delete(isLoggedIn, catchAsync(homeController.deleteComment));
+
 module.exports = router

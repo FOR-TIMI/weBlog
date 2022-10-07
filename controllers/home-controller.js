@@ -92,3 +92,27 @@ module.exports.findOnePost = async function(req,res){
     }
  
  }
+
+module.exports.deleteComment = async function(req,res){
+  try{
+    const comment = await Comment.destroy({
+       where : {
+          id : req.params.id
+       }
+    })
+
+    if(!comment){
+      req.flash("error","we can't find that comment")
+      res.redirect('back');
+      return
+    }
+    
+    req.flash("success","you comment has been deleted")
+    res.redirect('back');
+    return
+  }
+  catch(err){
+    req.flash("error", "something went wrong with our server");
+    return
+  }
+}
