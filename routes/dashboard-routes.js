@@ -6,6 +6,8 @@ const catchAsync = require('../utils/catchAsync');
 router.route('/')
       .get(isLoggedIn,catchAsync(dashBoardController.index))
 
+router.route('/posts/:id')
+      .delete(isLoggedIn,catchAsync(dashBoardController.delete))
 
 
 

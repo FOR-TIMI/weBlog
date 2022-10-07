@@ -4,7 +4,7 @@ const register = function(Handlebars) {
         return ownerId === loggedInUserId ?
         `<section class="card-body d-flex justify-content-end">
         <a href="/posts/${postId}/edit " class="card-link btn btn-info mr-3" data-bs-toggle="modal" data-bs-target="#editPost" data-bs-whatever="@fat">Edit</a>
-        <form class="d-inline" action="/posts/${postId}?_method=DELETE" method="POST">
+        <form class="d-inline" action="/dashboard/posts/${postId}?_method=DELETE" method="POST">
         <button class="btn btn-danger">Delete</button>
         </form>
         </section>` 

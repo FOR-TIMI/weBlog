@@ -1,6 +1,5 @@
 const { User, Post, Comment} = require('../models');
 
-
 module.exports.index = async (req,res) => {
 try{
    if(req.session.loggedIn){
@@ -43,4 +42,32 @@ catch(err){
  return 
 }
 }
+
+module.exports.delete = async(req,res) => {
+
+    try{
+       const post = await Post.destroy({
+          where: {
+             id: req.params.id
+          }
+       })
+       
+       if(!post){
+          req
+          .flash("error", "No post found with this id")
+          return;
+         }
+
+       req.flash("success","Deleted post successfully")
+       res.redirect('/dashboard');
+       return
+    }
+    
+    catch(err){
+       res 
+       .status(500)
+       .json({message:err})
+    }
+    
+    }
 
