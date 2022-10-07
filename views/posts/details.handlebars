@@ -1,3 +1,4 @@
+{{> edit-modal}}
 <section class="container mt-5">
 
 	<section class="row">
@@ -8,8 +9,8 @@
 		{{/if}}
 			<section class="card">
 				<section class="card-body">
-					<h5 class="card-title">{{plainPost.title}}</h5>
-					<p class="card-text">{{plainPost.content}}</p>			
+					<h5 id="post-details-title" class="card-title">{{plainPost.title}}</h5>
+					<p id="post-details-content">{{plainPost.content}}</p>			
 				</section>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item d-flex justify-content-end">post by -{{plainPost.user.username}}</li>
@@ -62,3 +63,5 @@
 </div>
 
 </section>
+
+<script src="/js/editPost.js"></script>

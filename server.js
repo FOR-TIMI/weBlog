@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const ExpressError = require('./utils/ExpressError')
 const flash = require("connect-flash");
+const methodOverride = require('method-override')
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -38,6 +39,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname,'views'));
+app.use(methodOverride('_method'))
+
 
 //return To routes
 app.use((req, res, next) => {

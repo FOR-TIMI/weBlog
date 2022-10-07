@@ -11,7 +11,7 @@ try{
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -24,7 +24,7 @@ try{
         ]
     })
 
-
+// res.json(posts)
     const plainPost = posts.map(post => post.get({plain: true}))
        res.render('dashboard/index',{
        plainPost,
@@ -44,46 +44,29 @@ catch(err){
 }
 }
 
-module.exports.renderNewPostForm = async(req,res) => {
-
- res.render('posts/new', {
-   loggedIn: req.session.loggedIn
-});
-
-}
-
 module.exports.EditPost = async(req,res) => {
 
-    const post = await Post.findOne({
-        where: {
-            id: req.params.id
-        },
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
+    // const post = await Post.update(
+    //     req.body,
+    //     {
+    //     where: {
+    //         id: req.params.id
+    //     }
+    // })
+
+    res.send(req.body)
+    console.log(req.body)
     
-    if(!post){
-        res
-        .status(404)
-        .json({message: "Could not find that post"})
-    }
-    const plainPost = post.get({plain : true});
+    // if(!post){
+    //     res
+    //     .status(404)
+    //     .json({message: "Could not find that post"})
+    // }
+    // const plainPost = post.get({plain : true});
 
 
-    res.render('posts/edit', {
-        plainPost,
-        loggedIn:req.session.loggedIn
-    })
+    // res.render('posts/edit', {
+    //     plainPost,
+    //     loggedIn:req.session.loggedIn
+    // })
 }

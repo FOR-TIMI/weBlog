@@ -11,8 +11,8 @@
         <h5 class="modal-title" id="newPostModalLabel">New Post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
         <form>
+        <div class="modal-body">
           <div class="mb-3">
             <label for="post-title" class="col-form-label">Title:</label>
             <input type="text" class="form-control" id="post-title">
@@ -22,19 +22,18 @@
             <textarea class="form-control" id="post-content"></textarea>
             <a href={{user_id}} id="user-id"></a>
           </div>
+          </div>
+            <div class="modal-footer">
+              <button id="addPost" type="submit" class="btn btn-warning text-light">Add post +</button>
+            </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button id="addPost" type="submit" class="btn btn-warning text-light">Add post +</button>
-      </div>
     </div>
   </div>
 </div>
 
-	{{#each plainPost}}
-    	{{> dashboard-details}}
+	{{#each plainPost}}        
+    {{> dashboard-details}}
 	{{/each}}
 </section>
 
 <script src="/js/makePost.js"></script>
-<script src="/js/editPost.js" defer></script>

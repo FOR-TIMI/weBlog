@@ -5,10 +5,9 @@ const catchAsync = require('../utils/catchAsync');
 
 router.route('/')
       .get(catchAsync(dashBoardController.index))
+      .put(dashBoardController.EditPost)
 
 
-router.route('/edit/:id')
-      // .get(dashBoardController.EditPost)
 
 
 

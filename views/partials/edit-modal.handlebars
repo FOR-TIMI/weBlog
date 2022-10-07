@@ -1,0 +1,26 @@
+<div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="editPostLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editPostLabel">Edit Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <form method="POST" action="" class="edit-post-form">
+              <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="edit-post-title" class="col-form-label">Title:</label>
+                    <input type="text" name="title" class="form-control" id="edit-post-title">
+                  </div>
+                  <div class="mb-3">
+                    <label for="edit-post-content" class="col-form-label">Content:</label>
+                    <textarea name="content" class="form-control" id="edit-post-content"></textarea>
+                    <a href={{user_id}} id="user-id"></a>
+                  </div>
+              </div>
+              <div class="modal-footer save-edit-container">
+                <button type="submit" class="btn btn-success text-light saveEdit">Save changes</button>
+              </div>
+        </form>
+    </div>
+  </div>
+</div>

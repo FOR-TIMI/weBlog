@@ -1,10 +1,10 @@
 const register = function(Handlebars) {
     var helpers = {
-    compare: function(vala, valb,id) {
-        return vala === valb ?
+    compare: function(ownerId, loggedInUserId,postId) {
+        return ownerId === loggedInUserId ?
         `<section class="card-body d-flex justify-content-end">
-        <a href="/posts/${id}/edit " class="card-link btn btn-info mr-3">Edit</a>
-        <form class="d-inline" action="/posts/${id}?_method=DELETE" method="POST">
+        <a href="/posts/${postId}/edit " class="card-link btn btn-info mr-3" data-bs-toggle="modal" data-bs-target="#editPost" data-bs-whatever="@fat">Edit</a>
+        <form class="d-inline" action="/posts/${postId}?_method=DELETE" method="POST">
         <button class="btn btn-danger">Delete</button>
         </form>
         </section>` 
@@ -25,7 +25,7 @@ const register = function(Handlebars) {
                 html += `<div class="d-flex justify-content-between"> 
                         <p class="card-text">${c.comment_text}</p>
                         <div>
-                        <a type="submit" href="comments/${c.id}" class="btn btn-danger delete-comment-button btn-sm">delete</a>
+                        <a type="submit" href="comments/${c.postId}" class="btn btn-danger delete-comment-button btn-sm">delete</a>
                         </div>
                         </div>
                         `  
@@ -45,13 +45,15 @@ const register = function(Handlebars) {
    
 
         return html;
-    }
+    },
+
 
 };
 
 if (Handlebars && typeof Handlebars.registerHelper === "function") {
     for (var prop in helpers) {
         Handlebars.registerHelper(prop, helpers[prop]);
+
     }
 } else {
     return helpers;
