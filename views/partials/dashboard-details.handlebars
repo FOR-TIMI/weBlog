@@ -1,0 +1,33 @@
+{{> edit-modal}}
+
+<article class="card mb-3 col-md-8 shadow">
+	<div class="row">
+		<div class="col">
+			<div class="card-body">
+				<section class="d-flex justify-content-between">
+				  <h5 class="card-title">{{title}}</h5>
+				  <p class="card-text"><small class="text-muted">posted on {{createdAt}}</small></p>
+
+				</section>
+				<p class="card-text">{{content}}</p>
+					<p class="card-text">
+					<small class="text-muted"> -{{user.username}}</small>
+				</p>
+
+				<div class="d-flex justify-content-between">
+
+				<a href="/posts/{{id}}"  class="btn text-light btn-success">
+					View full post
+				</a>
+					<p class="card-text">
+						<small class="text-muted">this post has {{comments.length}} comments</small>
+					</p>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+
+
+
