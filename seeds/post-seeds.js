@@ -20,7 +20,7 @@ const postData = [
     },
     {
         title : 'Object-Relational Mapping',
-        content: `I have really loved learning about ORMs. it's erally simplified the way I create queries in SQL`,
+        content: `I have really loved learning about ORMs. it's really simplified the way I create queries in SQL`,
         user_id: 4,
     },
     {
