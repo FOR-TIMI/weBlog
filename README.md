@@ -17,7 +17,7 @@
 To set up and utilise this project. Take the following steps.
 
 - Step 1: Clone this repository
-- ![image](https://user-images.githubusercontent.com/104241247/193981698-ce1db42f-9031-4655-9931-038fa1b6f64e.png)
+- ![image](https://user-images.githubusercontent.com/104241247/194509957-20c4c275-a73b-41e0-9943-bc2e5aeb2e16.png)
 
 
 - Step 2: Install dependencies by running the ``` npm install ``` command in the command line
