@@ -1,5 +1,10 @@
 const {Comment} = require('../models')
 
+/*
+ Holds functions to handle all requests on a comment
+*/
+
+//function to find all comments
 module.exports.findAllComments = async (req, res) => {
     try{
         const comments = await Comment.findAll({})
@@ -20,6 +25,7 @@ module.exports.findAllComments = async (req, res) => {
     }
 }
 
+// function to add a comment
 module.exports.addComment = async(req,res) => {
    try{
     const comment = await Comment.create({
@@ -37,6 +43,7 @@ module.exports.addComment = async(req,res) => {
    }
 }
 
+// function to delete a comment
 module.exports.deleteComment = async (req,res) => {
 try{
     const comment = await Comment.destroy({
