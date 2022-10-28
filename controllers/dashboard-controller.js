@@ -1,7 +1,11 @@
 const { User, Post, Comment} = require('../models');
 
+/*
+Controller functions to handle all requests from the /dashboard route
+*/
 module.exports.index = async (req,res) => {
 try{
+   // TO check if the user is loggedIn
    if(req.session.loggedIn){
     const posts = await Post.findAll({
         where: {
@@ -23,8 +27,10 @@ try{
         ]
     })
 
-// res.json(posts)
+    // To parse the response data to plain form so handlebars can access it
     const plainPost = posts.map(post => post.get({plain: true}))
+    
+    // To render the dashbord page
        res.render('dashboard/index',{
        plainPost,
        loggedIn: req.session.loggedIn,
@@ -32,10 +38,13 @@ try{
     })
     return;
    }
+   //If the user is not signed in, an alert message is sent and the user is redirected to the login page
    req.flash("error", "you must sign in first")
    res.redirect('/login')
 
 }
+   
+   //if something goes wrong with the server, then we flash the messagein form of an alert
 catch(err){
     req
     .flash("error", "something went wrong with our server")
@@ -43,6 +52,10 @@ catch(err){
 }
 }
 
+
+/*
+ To handle delete requests on posts owned by users
+*/
 module.exports.delete = async(req,res) => {
 
     try{
