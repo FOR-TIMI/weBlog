@@ -1,7 +1,28 @@
-# weBlog [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
- CMS-style blog site that can publish articles, blog posts, thoughts and opinions
+
+ <h1 align="center"> weBlog  </h1>
+<p align="center">
+ <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge&logo=mit&logoColor=white""/>
+ <img src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white"/>
+ <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"/>
+ <img src ="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+</p>
+<p align="center">
+ <img src ="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB"/>
+ <img src="https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white" />
+ <img src="https://img.shields.io/badge/Nodemon-Nodemon-green?style=for-the-badge&logo=nodemon&logoColor=%2361DAFB">
+</p>
+<p align="center">
+ <img src ="https://img.shields.io/badge/API-REST%20API-orange?style=for-the-badge&logo=rest&logoColor=%2361DAFB"/>
+ <img src ="https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black"/>
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+</p>
+
  
 ## Description
+ CMS-style blog site that can publish articles, blog posts, thoughts and opinions
 
     
 ## Table of Content
