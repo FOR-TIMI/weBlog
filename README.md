@@ -1,4 +1,4 @@
-# weBlog  [![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0) 
+# weBlog [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  CMS-style blog site that can publish articles, blog posts, thoughts and opinions
  
 ## Description
@@ -46,8 +46,9 @@ nteractive blog site that allows users to make posts comment on posts, edit post
     
     
 ## Licenses
-### IBM Public License Version 1.0
-[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0) 
+### MIT license
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 
 
