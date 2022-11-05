@@ -49,7 +49,7 @@ You run this file by first logging in to you mysql server and running the ```sou
 - Step 5: Create .env file
 - Step 6: Type in your database credentials. Ensure that they use the format
 ```
-DB_NAME = new_db  // Our database name in this case 
+DB_NAME = weblog_db
 DB_USER = YOUR mysql USERNAME 
 DB_PW = YOUR mysql PASSWORD
 
