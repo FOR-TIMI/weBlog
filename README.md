@@ -51,7 +51,7 @@ To set up and utilise this project. Take the following steps.
 You run this file by first logging in to you mysql server and running the ```source db/schema.sql ```
   command to create the database
 - Step 5: Create .env file
-- Step 6: Type in your database credentials. Ensure that they use the format
+- Step 6: Type in your database credentials. Ensure that they use the format as followed
 ```
 DB_NAME = weblog_db
 DB_USER = YOUR mysql USERNAME 
