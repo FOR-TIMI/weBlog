@@ -63,7 +63,7 @@ If you have a jawsDb url from your heroku
 ```
 JAWSDB_URL = `Your jawsBD URL`
 ```
-- Step 7(Optional!): A seeds folder has been added to populate the database with some data.<br>
+- Step 7(Optional!): A seeds folder has been added to populate the database with some seed data.<br>
 To run this seeds folder, we must run the ``` npm run seed ``` command. 
     
 ## Usage
