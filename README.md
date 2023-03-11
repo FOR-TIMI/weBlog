@@ -85,9 +85,12 @@ nteractive blog site that allows users to make posts comment on posts, edit post
 
 
 ## Contribution
-Made with ❤️ by Timi
+Made with ❤️ by Timi. <br>
+[Check out my portolio](https://timi.codes/)
 
 
 ## questions
-For additional questions contact me via email on [femiladiranerife24@gmail.com](mailto:femiladiranerife24@gmail.com) or [view some other projects](https://github.com/FOR-TIMI/).
+For additional questions contact me via email on [femiladiranerife24@gmail.com](mailto:femiladiranerife24@gmail.com) or [view some other projects](https://github.com/FOR-TIMI/). 
+
+
 
