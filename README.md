@@ -85,7 +85,7 @@ nteractive blog site that allows users to make posts comment on posts, edit post
 
 ## Contribution
 Made with ❤️ by Timi. <br>
-[Check out my portolio](https://timi.codes/)
+[Please Check out my portolio](https://timi.codes/)
 
 
 ## questions
